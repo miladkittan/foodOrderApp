@@ -20,9 +20,7 @@ export default function Checkout() {
     const cartCtx = useContext(CartContext);
     const userProgressCtx = useContext(UserProgressContext);
     
-    const baseUrl = process.env.REACT_APP_API_URL || 'http://localhost:5173';
-
-    const { data, isLoading: isSending, error, sendRequest, clearData } = useHttp(`${baseUrl}/orders`, requestConfig);
+    const { data, isLoading: isSending, error, sendRequest, clearData } = useHttp('http://localhost:3000/orders', requestConfig);
 
     const cartTotal = cartCtx.items.reduce(
         (totalPrice, item) => totalPrice + item.quantity * item.price,
