@@ -24,7 +24,7 @@ export default function Checkout() {
     const cartCtx = useContext(CartContext);
     const userProgressCtx = useContext(UserProgressContext);
     const url = getServerUrl();
-    const { data, isLoading: isSending, error, sendRequest, clearData } = useHttp(`https://foodorderapp-1.onrender.com/orders`, requestConfig);
+    const { data, isLoading: isSending, error, sendRequest, clearData } = useHttp(`https://foodorderapp-g805.onrender.com/orders`, requestConfig);
 
     const cartTotal = cartCtx.items.reduce(
         (totalPrice, item) => totalPrice + item.quantity * item.price,

@@ -5,7 +5,7 @@ import Error from "../components/Error";
 const requestConfig = {};
 
 export const getServerUrl = () => {
-    return process.env.REACT_APP_SERVER_URL || 'http://localhost:3000';
+    return 'http://localhost:3000';
 };
 
 export default function Meals() {
@@ -13,7 +13,7 @@ export default function Meals() {
     const url = getServerUrl();
     console.log(url);
     
-    const { data: loadedMeals, isLoading, error, } = useHttp(`https://foodorderapp-1.onrender.com/meals`, requestConfig, []);
+    const { data: loadedMeals, isLoading, error, } = useHttp(`https://foodorderapp-g805.onrender.com/meals`, requestConfig, []);
 
     if (isLoading) {
         return <p className="center">Fetching meals...</p>;
