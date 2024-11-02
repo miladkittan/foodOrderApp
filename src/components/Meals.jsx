@@ -11,6 +11,8 @@ export const getServerUrl = () => {
 export default function Meals() {
 
     const url = getServerUrl();
+    console.log(url);
+    
     const { data: loadedMeals, isLoading, error, } = useHttp(`${url}/meals`, requestConfig, []);
 
     if (isLoading) {
