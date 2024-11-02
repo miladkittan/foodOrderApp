@@ -13,7 +13,7 @@ export default function Meals() {
     const url = getServerUrl();
     console.log(url);
     
-    const { data: loadedMeals, isLoading, error, } = useHttp(`${url}/meals`, requestConfig, []);
+    const { data: loadedMeals, isLoading, error, } = useHttp(`https://foodorderapp-1.onrender.com/meals`, requestConfig, []);
 
     if (isLoading) {
         return <p className="center">Fetching meals...</p>;
