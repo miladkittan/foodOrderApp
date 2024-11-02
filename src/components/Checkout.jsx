@@ -15,12 +15,16 @@ const requestConfig = {
     },
 };
 
+export const getServerUrl = () => {
+    return process.env.REACT_APP_SERVER_URL || 'http://localhost:3000';
+};
+
 export default function Checkout() {
 
     const cartCtx = useContext(CartContext);
     const userProgressCtx = useContext(UserProgressContext);
-    
-    const { data, isLoading: isSending, error, sendRequest, clearData } = useHttp('http://localhost:3000/orders', requestConfig);
+    const url = getServerUrl();
+    const { data, isLoading: isSending, error, sendRequest, clearData } = useHttp(`${url}/orders`, requestConfig);
 
     const cartTotal = cartCtx.items.reduce(
         (totalPrice, item) => totalPrice + item.quantity * item.price,
