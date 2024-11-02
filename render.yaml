@@ -1,0 +1,29 @@
+services:
+  # Frontend Vite service
+  - type: web
+    name: foodOrderApp
+    env: node
+    buildCommand: npm install && npm run build
+    startCommand: npm run dev
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
+      - key: VITE_BACKEND_URL
+        value: https://foodorderapp-1.onrender.com # Replace with your actual backend URL
+
+  # Backend Node.js service
+  - type: web
+    name: foodOrderApp-1
+    env: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node app.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 8080
+      - key: CORS_ORIGIN
+        value: https://foodorderapp-g805.onrender.com # Replace with your actual frontend URL
